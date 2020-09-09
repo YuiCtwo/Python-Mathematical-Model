@@ -1,13 +1,21 @@
 # -*- coding:utf-8 -*-
 
+# optimize.linprog(c, A, b, Aeq, beq, bounds...)
+# 一般化基本模型(参数都是矩阵形式):
+# A x <= b
+# Aeq x = beq
+# lb <= x <= ub, bounds=((lb, ub), ...) 其中无穷大为 None(表示无上界)
+
+
 from scipy import optimize
 import numpy as np
 import matplotlib.pyplot as plt
 import time
 plt.rcParams["font.sans-serif"] = ['SimHei']  # 显示中文标签
 plt.rcParams["axes.unicode_minus"] = False  # 正常显示负号
+
+# optimize.linprog 求得规划的最小值，若要求最大，即所有系数前面加个负号就行了
 # 求 max f (0.05, 0.27, 0.19, 0.185, 0.185)*(x0, x1, x2, x3, x4).T
-# 先转换为求解最小值，即所有系数前面加个负号就行了
 # 从 a = 0 开始以步长为 0.001 循环搜索
 # fig, ax = plt.subplots()
 a = 0
@@ -45,5 +53,5 @@ plt.ylabel('Q')
 plt.xlabel('a')
 plt.xticks(np.linspace(0, 0.05, num=10))
 plt.yticks(np.linspace(0, 0.5, num=10))
-plt.savefig("fig"+str(int(time.time()))+".jpg")
+# plt.savefig("fig"+str(int(time.time()))+".jpg")
 plt.show()
