@@ -3,6 +3,7 @@
 import numpy as np
 from copy import deepcopy
 
+
 class MarkovChain:
 
     def __init__(self, distribution, states, scale):
