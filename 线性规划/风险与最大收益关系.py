@@ -10,7 +10,6 @@
 from scipy import optimize
 import numpy as np
 import matplotlib.pyplot as plt
-import time
 plt.rcParams["font.sans-serif"] = ['SimHei']  # 显示中文标签
 plt.rcParams["axes.unicode_minus"] = False  # 正常显示负号
 

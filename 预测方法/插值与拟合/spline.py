@@ -7,6 +7,8 @@ from scipy.interpolate import splev, splrep
 # 一元样条插值
 def f1(x):
     return x ** 2 + 10 * np.sin(x) + 1
+
+
 x = np.linspace(0, 10, 20)
 y = f1(x)
 plt.plot(x, y, "*-")

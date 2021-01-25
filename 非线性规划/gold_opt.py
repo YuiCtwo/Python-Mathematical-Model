@@ -1,6 +1,8 @@
 # -*- coding:utf-8 -*-
+# 黄金分割法和
 
 import math
+
 
 def f(x):
     # 自定义函数

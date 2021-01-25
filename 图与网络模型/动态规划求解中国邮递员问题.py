@@ -1,8 +1,8 @@
 # -*- coding:utf-8 -*-
 import sys
+
+
 # 方法 1 使用动态规划来搜索最小组合
-
-
 def floyd(graph_matrix):
     n = len(graph_matrix)
     # 构造 path 数组
@@ -48,16 +48,16 @@ def shortest_path(graph_matrix, d):
         dp.append(sys.maxsize)
     for i in range(dp_length):
         x = 1
-        while (1 << (x-1)) & i:
+        while (1 << (x - 1)) & i:
             # 选择不在当前集合的点x
             x += 1
-        for y in range(x+1, odd_num+1):  # x+1 <= y <= odd_num
+        for y in range(x + 1, odd_num + 1):  # x+1 <= y <= odd_num
             # 选择不在集合内的与x不同的y
-            if (1 << (y-1)) & i:
+            if (1 << (y - 1)) & i:
                 continue
             else:
                 # 计算
-                binary_pt = i | (1 << (x-1)) | (1 << (y-1))  # 新形成的集合
+                binary_pt = i | (1 << (x - 1)) | (1 << (y - 1))  # 新形成的集合
                 if graph_matrix[odd_points[x]][odd_points[y]] == sys.maxsize:
                     # x,y 不连通
                     pass
@@ -69,7 +69,7 @@ def shortest_path(graph_matrix, d):
                     # 更新最短路径
                     dp[binary_pt] = min(dp[binary_pt], trail)
     # print(dp[dp_length-1])
-    return dp[dp_length-1]
+    return dp[dp_length - 1]
 
 
 def main():
@@ -83,7 +83,7 @@ def main():
         # 初始化
         for i in range(n):
             d.append(0)
-        graph = [[sys.maxsize]*n for _ in range(n)]
+        graph = [[sys.maxsize] * n for _ in range(n)]
         # 读入数据
         for line in fp.readlines():
             start_point, end_point, weight = map(int, line.split(' '))
@@ -112,4 +112,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

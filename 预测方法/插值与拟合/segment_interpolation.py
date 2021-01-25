@@ -2,7 +2,6 @@
 # 分段线性插值
 import numpy as np
 from scipy import interpolate
-import matplotlib.pyplot as plt
 import pylab as pl
 
 x = np.linspace(0, 10, 101)
